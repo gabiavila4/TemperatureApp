@@ -23,24 +23,100 @@ class ViewController: UIViewController {
 
     
     @IBAction func KButton(_ sender: UIButton) {
-        var temp = Int(TempTFOutlet.text!)
+        var temp = Double(TempTFOutlet.text!)
         var unit = UnitOutlet.text
+        var tempN = temp
+        
         if(unit == "K")
         {
-            LabelOutlet.text = "\(temp)"
+            
+            LabelOutlet.text = "\(tempN!)"
+            
         }else if(unit == "F")
         {
-            temp = (temp! - 32) * 5
-            temp = temp! / 9
-            temp = temp! + 273
+            tempN = (tempN! - 32)
+            tempN = tempN! * 5
+            tempN = tempN! / 9
+            tempN = (Double(tempN!) + 273.15)
+            LabelOutlet.text = "\(tempN!)"
             
+            print("Yes F")
+        }else if(unit == "C")
+        {
+            tempN = tempN! + 273.15
+            LabelOutlet.text = "\(tempN!)"
+            
+        }else
+        {
+            LabelOutlet.text = "TRY AGAIN"
         }
+        
+        
+        
     }
     
     @IBAction func FButton(_ sender: UIButton) {
+        
+        var temp = Double(TempTFOutlet.text!)
+        var unit = UnitOutlet.text
+        var tempN = temp
+        
+        if(unit == "F")
+        {
+            
+            LabelOutlet.text = "\(tempN!)"
+            
+        }else if(unit == "C")
+        {
+            tempN = tempN! * 9
+            tempN = tempN! / 5
+            tempN = (Double(tempN!) + 32)
+            LabelOutlet.text = "\(tempN!)"
+            //print("Yes F")
+        }else if(unit == "K")
+        {
+            tempN = tempN! - 273.15
+            tempN = tempN! * 9
+            tempN = tempN! / 5
+            tempN = tempN! + 32
+            LabelOutlet.text = "\(tempN!)"
+            
+        }else
+        {
+            LabelOutlet.text = "TRY AGAIN"
+        }
+        
+        
     }
     
     @IBAction func CButton(_ sender: UIButton) {
+        var temp = Double(TempTFOutlet.text!)
+        var unit = UnitOutlet.text
+        var tempN = temp
+        
+        if(unit == "C")
+        {
+            
+            LabelOutlet.text = "\(tempN!)"
+            
+        }else if(unit == "F")
+        {
+            tempN = tempN! - 32
+            tempN = tempN! * 5
+            tempN = (Double(tempN!) / 9)
+            LabelOutlet.text = "\(tempN!)"
+            //print("Yes F")
+        }else if(unit == "K")
+        {
+            tempN = tempN! - 273.15
+            LabelOutlet.text = "\(tempN!)"
+            
+        }else
+        {
+            LabelOutlet.text = "TRY AGAIN"
+        }
+        
+        
     }
     
     
